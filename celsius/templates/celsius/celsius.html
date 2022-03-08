@@ -1,0 +1,24 @@
+{% extends 'celsius/base.html' %}
+
+
+{% block content %}
+	<h1>{{ title }}</h1><br>
+	<form action='' method='POST'>
+		{% csrf_token %}
+		{{ form.celsius.label }}
+		{% for radiobutton in form.celsius %}
+			{{ radiobutton }}
+		{% endfor %}
+		<br><br>{{ form.value.label }}
+		{{ form.value }}<br><br>
+	<button type="submit">Конвертировать</button>
+	</form>
+
+	
+	{% if rez and degrees == 'C' %}
+	<br><br>{{ rez }} градуса Фаренгейт
+	{% elif rez and degrees == 'F' %}
+	<br><br>{{ rez }} градуса Цельсия
+	{% endif %}
+		
+{% endblock %}
