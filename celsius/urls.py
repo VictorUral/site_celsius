@@ -5,4 +5,5 @@ from .views import *
 urlpatterns = [
     path('', main, name='main'),
     path('celsius/', celsius, name='celsius'), # 127.0.0.2:8000/celsius/
+    path('cleaning_session/', cleaning_session, name='cleaning_session'),
 ]

@@ -15,10 +15,16 @@
 	</form>
 
 	
-	{% if rez and degrees == 'C' %}
-	<br><br>{{ rez }} градуса Фаренгейт
-	{% elif rez and degrees == 'F' %}
-	<br><br>{{ rez }} градуса Цельсия
+	{% if rez %}
+	<br><br>{{ rez }}
+	{% endif %}
+	
+	{% if conversion %}
+		<br><br><p>Последние конвертации:</p>
+		{% for c in conversion %}
+			<p>{{ c }}</p>
+		{% endfor %}
+		<a href="{% url 'cleaning_session' %}"><button type="submit">Очистить</button></a>
 	{% endif %}
 		
 {% endblock %}
